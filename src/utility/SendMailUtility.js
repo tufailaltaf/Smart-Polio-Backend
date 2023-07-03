@@ -1,7 +1,7 @@
 //External Lib Import
 const nodemailer = require("nodemailer");
 
-const SendMailUtility = async (emailTo, emailText, emailSubject) => {
+const SendMailUtility = async (emailTo, emailText, emailSubject,Attachments) => {
   let transporter = await nodemailer.createTransport({
     name: "server123.web-hosting.com",
     host: "server123.web-hosting.com",
@@ -21,6 +21,11 @@ const SendMailUtility = async (emailTo, emailText, emailSubject) => {
     to: emailTo,
     subject: emailSubject,
     html: emailText,
+    attachments: [
+      {
+        path: Attachments
+      }
+    ]
   };
 
   return await transporter.sendMail(mailOption);

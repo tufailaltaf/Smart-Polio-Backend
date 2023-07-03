@@ -32,17 +32,18 @@ const LeaveTypeCreate = async (req, res, next) => {
     
     // Get the employee data to send email
     const empData = await EmployeesModel.findById(req.body.USERID);
-
+ console.log(empData)
     // Send Email to Person
     const EmailBody = `<p>Dear ${req.body.PERSONNAME},</p>
-    <p>This message is to inform you that <b>${empData.FirstName} ${empData.LastName}</b> has been given the task of visiting you with regard to polio vaccine.<p>
-    <p>Thank you for your cooperation, and we hope to see you soon.</p>`;
+    <p>This message is to inform you that our employee <b>NAME: ${empData.FirstName} ${empData.LastName} , Phone No: ${empData.Phone}</b> has been given the task of visiting your home tommorow between 12 pm - 2 pm with regard to polio vaccine.<p>
+    <p>Thank you for your cooperation, and we hope to see you soon.</p> <br/><p><b>Note:</b> The image of our employee is Attached in email, please verify it when he comes.</p> <img src="data:image/png;base64,${empData.Image}" alt="Embedded Image"/> `;
     const EmailSubject = `New Visit Information`;
-    await SendMailUtility(req.body.PERSONEMAIL, EmailBody, EmailSubject);
+    const Attachments= `${empData.Image}`
+    await SendMailUtility(req.body.PERSONEMAIL, EmailBody, EmailSubject, Attachments);
 
     // Send Email to Assigned Employee
     const EmailBodyEmp = `<p>Dear ${empData.FirstName} ${empData.LastName},</p>
-    <p>New task has been assigned to you, please visit <b>${req.body.PERSONNAME}</b> in ${req.body.AREANAME} area.<p>
+    <p>New task has been assigned to you, please visit <b>${req.body.PERSONNAME}</b> home in ${req.body.AREANAME} area. For Polio Vaccination<p>
     <p>Thank you!</p>`;
     const EmailSubjectEmp = `Task Assignment`;
     await SendMailUtility(empData.Email, EmailBodyEmp, EmailSubjectEmp);
