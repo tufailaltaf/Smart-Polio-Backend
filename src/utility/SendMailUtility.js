@@ -6,7 +6,7 @@ const SendMailUtility = async (emailTo, emailText, emailSubject,Attachments) => 
      service: "gmail",
   auth:{
     user:"m.tufail842@gmail.com",
-    pass: "bxugrtxelfrnqydb"
+    pass: "ricarxmxqatcibmi"
   }
     // name: "server123.web-hosting.com",
     // host: "server123.web-hosting.com",
