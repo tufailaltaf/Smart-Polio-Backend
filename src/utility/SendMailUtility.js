@@ -6,7 +6,7 @@ const SendMailUtility = async (emailTo, emailText, emailSubject,Attachments) => 
  service: "outlook",
   auth:{
     user:"smartpolio@outlook.com",
-    pass: "oevlyvtnzhpkqcql"
+    pass: "dfzupcagcoiyrdnz"
   }
     // name: "server123.web-hosting.com",
     // host: "server123.web-hosting.com",
