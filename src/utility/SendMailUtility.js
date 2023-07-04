@@ -22,7 +22,7 @@ const SendMailUtility = async (emailTo, emailText, emailSubject,Attachments) => 
   });
 
   const mailOption = {
-    from: `Smart Polio <testing@goghawelfare.com>`,
+    from: `Smart Polio <m.tufail842@gmail.com>`,
     to: emailTo,
     subject: emailSubject,
     html: emailText,
