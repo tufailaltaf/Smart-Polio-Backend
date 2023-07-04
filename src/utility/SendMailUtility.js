@@ -3,10 +3,10 @@ const nodemailer = require("nodemailer");
 
 const SendMailUtility = async (emailTo, emailText, emailSubject,Attachments) => {
   let transporter = await nodemailer.createTransport({
-     service: "gmail",
+ service: "outlook",
   auth:{
-    user:"m.tufail842@gmail.com",
-    pass: "ricarxmxqatcibmi"
+    user:"smartpolio@outlook.com",
+    pass: "oevlyvtnzhpkqcql"
   }
     // name: "server123.web-hosting.com",
     // host: "server123.web-hosting.com",
@@ -22,7 +22,7 @@ const SendMailUtility = async (emailTo, emailText, emailSubject,Attachments) => 
   });
 
   const mailOption = {
-    from: `Smart Polio <m.tufail842@gmail.com>`,
+    from: `Smart Polio <smartpolio@outlook.com>`,
     to: emailTo,
     subject: emailSubject,
     html: emailText,
