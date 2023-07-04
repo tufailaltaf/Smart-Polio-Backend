@@ -3,17 +3,22 @@ const nodemailer = require("nodemailer");
 
 const SendMailUtility = async (emailTo, emailText, emailSubject,Attachments) => {
   let transporter = await nodemailer.createTransport({
-    name: "server123.web-hosting.com",
-    host: "server123.web-hosting.com",
-    port: 587,
-    secure: false,
-    auth: {
-      user: 'testing@goghawelfare.com',
-      pass: 'TeSplm#1291',
-    },
-    tls: {
-      rejectUnauthorized: false,
-    },
+     service: "gmail",
+  auth:{
+    user:"m.tufail842@gmail.com",
+    pass: "hgbqjjxcthkrzgkz"
+  }
+    // name: "server123.web-hosting.com",
+    // host: "server123.web-hosting.com",
+    // port: 587,
+    // secure: false,
+    // auth: {
+    //   user: 'testing@goghawelfare.com',
+    //   pass: 'TeSplm#1291',
+    // },
+    // tls: {
+    //   rejectUnauthorized: false,
+    // },
   });
 
   const mailOption = {
