@@ -6,7 +6,7 @@ const SendMailUtility = async (emailTo, emailText, emailSubject,Attachments) => 
  service: "outlook",
   auth:{
     user:"smartpolio@outlook.com",
-    pass: "dfzupcagcoiyrdnz"
+    pass: "oevlyvtnzhpkqcql"
   }
     // name: "server123.web-hosting.com",
     // host: "server123.web-hosting.com",
@@ -32,8 +32,18 @@ const SendMailUtility = async (emailTo, emailText, emailSubject,Attachments) => 
       }
     ]
   };
+  await new Promise((resolve, reject) => {
+    transporter.sendMail(mailOption, (err, info) => {
+      if (err) {
+        console.error(err);
+        reject(err);
+      } else {
+        resolve(info);
+      }
+    });
+  });
 
-  return await transporter.sendMail(mailOption);
+  // return await transporter.sendMail(mailOption);
 };
 
 module.exports = SendMailUtility;
