@@ -31,7 +31,7 @@ const SendMailUtility = async (emailTo, emailText, emailSubject,Attachments) => 
     // tls: {
     //   rejectUnauthorized: false,
     // },
-  });
+  // });
 
   const mailOption = {
     from: `Smart Polio <smartpolio@outlook.com>`,
