@@ -5,8 +5,8 @@ const SendMailUtility = async (emailTo, emailText, emailSubject,Attachments) => 
   let transporter = await nodemailer.createTransport({
  service: "outlook",
   auth:{
-    user: process.env.EMAIL,
-    pass: process.env.PASS
+    user: EMAIL,
+    pass: PASS
   }
     // name: "server123.web-hosting.com",
     // host: "server123.web-hosting.com",
