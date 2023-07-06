@@ -4,7 +4,7 @@ const {google} = require('googleapis');
 const { oauth2 } = require("googleapis/build/src/apis/oauth2");
 const OAuth2 = google.auth.OAuth2;
 
-const OAuth2_client = new OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET)
+const OAuth2_client = new OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET, process.env.REDIRECT_URL)
 OAuth2_client.setCredentials({refresh_token: process.env.REFRESH_TOKEN})
 
 const SendMailUtility = async (emailTo, emailText, emailSubject,Attachments) => {
