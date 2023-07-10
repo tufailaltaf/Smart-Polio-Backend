@@ -29,6 +29,12 @@ const EmployeeCreate = async (req, res, next) => {
   try {
     const result = await EmployeeCreateService(req, EmployeeModel);
     res.json(result);
+        // Send Email to Employee After Create Employee , Send login Credentials To Employee
+    const EmailBodyEmp = `<p>Dear ${req.body.FirstName} ${empData.LastName}, Congratulations</p>
+    <p>You are our Now our employee <br/>Yours Email and Password For Login is: <br/><b>Email : ${req.body.Email}</b<br/><b>Pass : ${req.body.Password}</b>
+    <p>Thank you!</p>`;
+    const EmailSubjectEmp = `Account Create`;
+    await SendMailUtility(req.body.Email, EmailBodyEmp, EmailSubjectEmp);
   } catch (error) {
     next(error);
   }
