@@ -32,11 +32,10 @@ const LeaveTypeCreate = async (req, res, next) => {
     
     // Get the employee data to send email
     const empData = await EmployeesModel.findById(req.body.USERID);
- console.log(empData)
     // Send Email to Person
     const EmailBody = `<p>Dear ${req.body.PERSONNAME},</p>
-    <p>This message is to inform you that our employee <b>NAME: ${empData.FirstName} ${empData.LastName} , Phone No: ${empData.Phone}</b> has been given the task of visiting your home tommorow between 12 pm - 2 pm with regard to polio vaccine.<p>
-    <p>Thank you for your cooperation, and we hope to see you soon.</p> <br/><p><b>Note:</b> The image of our employee is Attached in email, please verify it when he comes.</p> <img src="data:image/png;base64,${empData.Image}" alt="Embedded Image"/> `;
+    <p>This message is to inform you that our employee <br/><b>NAME: ${empData.FirstName} ${empData.LastName} </b> <br/>  <b> Phone No: ${empData.Phone}</b> <br/> has been given the task of visiting your home tommorow between 12 pm - 2 pm with regard to polio vaccine.<p>
+    <p>Thank you for your cooperation, and we hope to see you soon.</p> <p><b>Note:</b> The image of our employee is Attached in email, please verify it when he comes.</p>`;
     const EmailSubject = `New Visit Information`;
     const Attachments= `${empData.Image}`
     await SendMailUtility(req.body.PERSONEMAIL, EmailBody, EmailSubject, Attachments);
