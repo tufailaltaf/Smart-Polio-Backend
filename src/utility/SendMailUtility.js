@@ -1,7 +1,6 @@
 //External Lib Import
 const nodemailer = require("nodemailer");
 const {google} = require('googleapis');
-const { oauth2 } = require("googleapis/build/src/apis/oauth2");
 const OAuth2 = google.auth.OAuth2;
 
 const OAuth2_client = new OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET, process.env.REDIRECT_URL)
@@ -20,17 +19,17 @@ const SendMailUtility = async (emailTo, emailText, emailSubject,Attachments) => 
     accessToken: accessToken
   }
   });
-    // name: "server123.web-hosting.com",
-    // host: "server123.web-hosting.com",
-    // port: 587,
-    // secure: false,
-    // auth: {
-    //   user: 'testing@goghawelfare.com',
-    //   pass: 'TeSplm#1291',
-    // },
-    // tls: {
-    //   rejectUnauthorized: false,
-    // },
+  //   name: "server123.web-hosting.com",
+  //   host: "server123.web-hosting.com",
+  //   port: 587,
+  //   secure: false,
+  //   auth: {
+  //     user: 'testing@goghawelfare.com',
+  //     pass: 'TeSplm#1291',
+  //   },
+  //   tls: {
+  //     rejectUnauthorized: false,
+  //   },
   // });
 
   const mailOption = {
