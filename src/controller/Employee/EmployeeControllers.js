@@ -19,6 +19,7 @@ const EmployeeListService = require("../../services/Employee/EmployeeListService
 const ListQueryService = require("../../services/Common/ListQueryService");
 const ListQueryJoinService = require("../../services/Common/ListQueryJoinService");
 const SendMailUtility = require("../../utility/SendMailUtility");
+
 /**
  * @desc Employee Create
  * @access private
@@ -29,15 +30,19 @@ const EmployeeCreate = async (req, res, next) => {
   try {
     const result = await EmployeeCreateService(req, EmployeeModel);
     res.json(result);
-        // Send Email to Employee After Create Employee , Send login Credentials To Employee
-    const EmailBodyEmp = `<p>Dear ${req.body.FirstName} ${empData.LastName}, Congratulations</p>
-    <p>You are our Now our employee <br/>Yours Email and Password For Login is: <br/><b>Email : ${req.body.Email}</b<br/><b>Pass : ${req.body.Password}</b>
+    // email to employee
+    const EmailBodyEmp = `<p>Dear ${req.body.FirstName} ${req.body.LastName} Congratulations,</p>
+    <p>You are our Now our employee<p>
+    <p>Your Email and Password For Login is: <br/> Email : ${req.body.Email} <br/> Pass: ${req.body.Password} </p>
     <p>Thank you!</p>`;
     const EmailSubjectEmp = `Account Create`;
     await SendMailUtility(req.body.Email, EmailBodyEmp, EmailSubjectEmp);
+
+
   } catch (error) {
     next(error);
   }
+  
 };
 
 /**
