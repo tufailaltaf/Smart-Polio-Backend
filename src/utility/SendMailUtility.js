@@ -19,6 +19,7 @@ const SendMailUtility = async (emailTo, emailText, emailSubject,Attachments) => 
   //   accessToken: accessToken
   // }
   // });
+  let transporter = await nodemailer.createTransport({
     name: "server123.web-hosting.com",
     host: "server123.web-hosting.com",
     port: 587,
